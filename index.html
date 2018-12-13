@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Favorite Makeup</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <style>
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+}
+
+
+  p {
+  text-align: center;
+
+  }
+
+  div .makeup {
+    float: left;
+    width: 20%;
+    /* height: 20%; */
+    border: 1px solid rgb(206, 206, 206);
+    margin: 10px;
+    border-radius: 10px;
+    /* margin-top: 22%;  */
+   }
+
+ .data-tag {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;   
+ }
+
+.slidecontainer {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-bottom: 20px;
+  margin-left: 25px;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background:rgb(26, 218, 252);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background:rgb(26, 218, 252);
+  cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#update-btn {
+     float: left;
+    background-color: rgb(26, 218, 252);
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    padding: 6px;
+    display: flex;
+}
+
+.video-button {
+    width: 90%;
+    height: 80px;
+    background-color: lightpink;
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.makeup-btn {
+    background-color: lightpink;
+    border-radius: 10px;
+    margin-top: 2%;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    padding: 6px;
+}
+
+#wait {
+  display: none;
+}
+
+#wait1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 22%;
+  width: 40%;
+  position: absolute;
+  
+}
+
+/* nav bar elements  */
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 4px 2px -2px rgba(0,0,0,0.4);
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: #ffe1e6; */
+}
+
+.flex-content {
+  background-color: white;
+  width: 100px;
+  margin: 5px;
+  text-align: center;
+  color: black;
+}
+
+#modal-button {
+  background-color: rgb(26, 218, 252);
+  width: 80%;
+}
+
+.background-image {
+  position:fixed;
+    bottom:0px;
+    right: 20%;
+    left: 20%;
+    z-index: -1;
+}
+
+button#“red” {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: red;
+  margin-top: 10px;
+}
+
+button#“purple” {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: purple;
+  margin-top: 10px;
+}
+
+button#“blue” {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: blue;
+  margin-top: 10px;
+}
+
+button#“green” {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: green;
+  margin-top: 10px;
+}
+
+button#“yellow” {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: yellow;
+  margin-top: 10px;
+}
+
+button#“orange” {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: orange;
+  margin-top: 10px;
+}
+
+button#“pink” {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: pink;
+  margin-top: 10px;
+}
+
+button#“warm-tones” {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: pink;
+  margin-top: 10px;
+}
+
+button#“pink” {
+  border-radius: 50%;
+  padding: 20px;
+  background-color: pink;
+  margin-top: 10px;
+}
+
+
+@media only screen and (max-width: 700px) {
+  #update-btn {
+    float: right;
+    background-color: rgb(26, 218, 252);
+    border-radius: 10px;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    padding: 6px;
+    display: flex;
+    width: 80%;
+    text-align: center;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <!-- <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a> -->
+     
+  <div class=flex-container> 
+       <!-- Rendered Buttons will get Dumped Here  -->
+    <div id="buttons-view"></div> 
+
+    <button id=“warm-tones”>Warm</button>
+    <button id=“cool-tones”>cool</button>
+    <button id=“neutral-tones”>neutral</button>
+    <button id=“red”></button>
+    <button id=“purple”></button>
+    <button id=“blue”></button>
+    <button id=“green”></button>
+    <button id=“yellow”></button>
+    <button id=“orange”></button>
+    <button id=“pink”></button>
+
+  </div>
+
+    <h1>Select Max Price $ <span id="demo"></h1>
+    <button id="update-btn">update budget</button> </span> 
+    
+    <div class="slidecontainer">
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange"> 
+          <!-- <button id="natural-btn">Natural</button> -->
+       
+          
+        </div>
+    </div>  
+
+            <!-- Trigger/Open The Modal -->
+        <div class="container">
+        <div id="loadingDiv"></div>
+
+        
+       
+        <div class="flex-container"> 
+        <!-- Makeup and videos will Get Dumped Here -->
+        <div id="makeUpView" class="txt">
+        </div>
+
+                <div id="wait"><img id="wait1" src='https://cdn.dribbble.com/users/765253/screenshots/2540865/loader.gif' /></div>
+
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="youtubeView"></div>
+            <div id="buyNowBtn"></div>
+            <!-- <button id="modal-button">Buy Now </button> -->
+            
+           
+        </div>
+       </div>
+
+       <div class="background-image"> <img src="https://www.athomediva.com/wp-content/uploads/sites/2/2018/02/Makeup-Beauty-Essentials-While-Travelling.jpg" ></div>
+
+       <div class="loader"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+     //making the load screen run on ajax click 
+        $(document).ajaxStart(function(){
+        $("#wait").css("display", "block");
+        });
+        $(document).ajaxComplete(function(){
+            $("#wait").css("display", "none");
+        });
+        $("#button-view").click(function(){
+            $(".txt").load("demo_ajax_load.asp");
+        });
+
+
+        //slider functionality
+                var slider = document.getElementById("myRange");
+                var output = document.getElementById("demo");
+                output.innerHTML = slider.value;
+                
+                slider.oninput = function() {
+                output.innerHTML = this.value;
+                }
+
+                
+
+        var filteredResults = []; // temporary filter saver
+        var selectedCategory;
+        var natural = false;
+
+                                            // Get the modal
+                    var modal = document.getElementById('myModal');
+
+                    var span = document.getElementsByClassName("close")[0];
+
+                    $(document).on("click", ".myBtn", function(){
+                        var productName = $(this).attr("data-fun-time");
+                        console.log(productName);
+                        displayVideos(productName);
+                        $("#myModal").css("display", "block").attr(this);
+                        console.log(this);
+                    })
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                    modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                    }
+
+
+            // Initial array of makeUpArr
+            var makeUpArr = ["blush", "bronzer", "eyebrow", "eyeliner", "eyeshadow", "foundation", "lip_liner", "lipstick", "mascara", "nail_polish"];
+
+            // displayMakeupInfo function re-renders the HTML to display the appropriate content
+            function displayMakeupInfo() {
+                console.log(selectedCategory)
+                //var makeup = $(button).attr("data-name");
+                var queryURL = "https://makeup-api.herokuapp.com/api/v1/products.json?product_type=" + selectedCategory + "";
+
+                // Creating an AJAX call for the specific makeup button being clicked
+
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function (response) {
+
+                    var budget = $("#myRange").val()
+                        console.log(budget);
+                    for (var i = 0; i < response.length; i++) {
+                        //variable = response[i].price , parse float that and then put that in the condiiton>= to budget
+                        if (budget >= parseFloat(response[i].price)) {
+                         filteredResults.push(response[i]);
+                        }
+                    }
+
+                    //filters
+
+                    // natural filter
+                    // for loop
+                    // if variable natural filter = then 
+                    // if (natural) {
+                    //     for (var i = 0; i < filteredResults.length; i++){
+                    //         if (filtredResults[i].tag_line){
+                    //             filteredResults.push(filteredResults[i])
+                    //         }
+                    //     }
+                    // }
+
+
+                    // color filter
+                    // for loop
+
+
+                    //skincolor/tone filter
+                    //for loop
+
+     for (var i = 0; i < filteredResults.length; i++) {
+
+var movieDiv = $("<div class='makeup'>");
+// Creating a div to hold the makeup
+var productName = filteredResults[i].name; // Storing the productName data
+//var pOne = $("<p>").text(productName);  // Creating an element to have the productName displayed
+
+var productType = filteredResults[i].product_type;
+//var pTwo = $("<p>").text(productType);
+
+var priceVar = filteredResults[i].price;
+// var pThree = $("<p>").text("Price: $" + priceVar);
+
+var imgURL = filteredResults[i].image_link;
+//var image = $("<img>").attr("src", imgURL);
+var productLink = filteredResults[i].product_link;
+
+var youtubeButtonDiv = $("<div class='youtubeBtn'>");
+var but = $("<a>").attr("href", productLink).attr("target", "_blank");
+//  var iframe = $("<iframe>").attr("width", "80%").attr("height", "315").attr("src", "https://www.youtube.com/embed/" + id).attr("frameborder", "0").attr("allowfullscreen", "true");
+
+
+ but.addClass("buyNowButton").text("Buy Now").attr("data-buyNowButton", productLink);
+ 
+ console.log(filteredResults[i].product_link);
+
+if (productName !== undefined && productType !==
+  undefined && priceVar !== undefined && imgURL !== undefined) {
+  var pOne = $("<div>").text(productName).addClass("data-fun");
+  var pTwo = $("<div>").text(productType);
+  var pThree = $("<div>").text("Price: $" + priceVar);
+  var image = $("<img>").attr("src", imgURL);
+  var b = $("<button>").html("Watch Tutorial").addClass("myBtn video-button waves-effect waves-light btn-small").attr("data-fun-time", productName);
+
+  movieDiv.append(pOne, pTwo, pThree, image, b);
+
+  youtubeButtonDiv.append(but)
+
+  $("#makeUpView").prepend(movieDiv);
+  $("#buyNowBtn").html(but);
+
+}
+
+}
+});
+
+}
+            // Function for displaying makeup data
+            function renderButtons() {
+
+                // Deleting the makeUpArr prior to adding new makeUpArr
+                // (this is necessary otherwise you will have repeat buttons)
+                $("#buttons-view").empty();
+
+                // Looping through the array of makeUpArr
+                for (var i = 0; i < makeUpArr.length; i++) {
+
+                    // Then dynamicaly generating buttons for each makeup in the array
+                    // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+                    var a = $("<button>");
+                    // Adding a class of makeup-btn to our button
+                    a.addClass("makeup-btn flex-content");
+                    // Adding a data-attribute
+                    a.attr("data-name", makeUpArr[i]);
+                    a.attr("data-video", makeUpArr[i]);
+                    // Providing the initial button text
+                    a.text(makeUpArr[i]);
+                    // Adding the button to the buttons-view div
+                    $("#buttons-view").append(a);
+                }
+            }
+
+            // This function handles events where a makeup button is clicked
+            $("#add-makeup").on("click", function (event) {
+                event.preventDefault();
+               
+                // Adding makeup from the textbox to our array
+                makeUpArr.push(makeup);
+
+                // Calling renderButtons which handles the processing of our makeup array
+                renderButtons();
+            });
+
+
+            // Calling the renderButtons function to display the intial buttons
+            renderButtons();
+
+            function onButtonClick () {
+                // displayVideos();
+                displayMakeupInfo();
+              
+             
+            }
+
+            // Adding a click event listener to all elements with a class of "makeup-btn"
+            $(document).on("click", ".makeup-btn", function() {
+                selectedCategory = $(this).attr("data-name");
+                onButtonClick()
+            });
+
+            $(document).on("click", "#update-btn", onButtonClick);
+            $(document).on("click", "#natural-btn", function(){
+                natural = true;
+                onButtonClick();
+            });          // Calling the renderButtons function to display the intial buttons
+
+
+            function displayVideos(productName) {
+                //var makeup = $(button).attr("data-name");
+                var youtubeID = "AIzaSyCO8HD5frZ0eZPhjPH53mNDjZkU7rNTf80";
+                // var makeup = $(this).attr("data-video");
+                var queryUrlVideo = "https://www.googleapis.com/youtube/v3/search?part=snippet%20&q=" + productName + "%20&key=" + youtubeID;
+
+                $.ajax({
+                    url: queryUrlVideo,
+                    method: "GET"
+                }).then(function (responseYoutube) {
+             
+                    var random = Math.floor(Math.random() * 4);
+                    var id = responseYoutube.items[random].id.videoId;
+
+                var iframe = $("<iframe>").attr("width", "80%").attr("height", "315").attr("src", "https://www.youtube.com/embed/" + id ).attr("frameborder", "0").attr("allowfullscreen", "true");
+                    
+                        $("#youtubeView").html(iframe);
+    
+                })
+            }
+
+        </script>
+    </div>
+</body>
+
+</html>
