@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Favorite Makeup</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
 
 * {
@@ -14,20 +14,38 @@
 }
 
 
+a {
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    padding: 3px 220px 3px 220px;
+    
+}
+
+
   p {
   text-align: center;
-
   }
 
-  div .makeup {
+ 
+ div .makeup {
     float: left;
-    width: 20%;
-    /* height: 20%; */
-    border: 1px solid rgb(206, 206, 206);
+    width: 250px;
+    height: 400px;
     margin: 10px;
+    background: white;
     border-radius: 10px;
-    /* margin-top: 22%;  */
-   }
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div .makeup img {
+    /* float: left; */
+    border-radius: 10px;
+    padding: 10px;
+    /* margin-top: 22%; */
+    height: 50%;
+}
 
  .data-tag {
     margin-left: 10%;
@@ -41,17 +59,19 @@
 }
 
 .slider {
-  -webkit-appearance: none;
-  width: 90%;
-  height: 10px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  margin-bottom: 20px;
-  margin-left: 25px;
+    -webkit-appearance: none;
+    width: 90%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-bottom: 23px;
+    margin-top: -42px;
+    margin-left: 115px;
+    float: left;
 }
 
 .slider:hover {
@@ -129,8 +149,8 @@
 
 .video-button {
     width: 90%;
-    height: 80px;
-    background-color: lightpink;
+   
+    background-color: black;
     border-radius: 10px;
     margin-left: 5%;
     margin-right: 5%;
@@ -169,7 +189,7 @@
 .navbar {
   overflow: hidden;
   background-color: white;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   width: 100%;
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.4);
@@ -187,6 +207,7 @@
   margin: 5px;
   text-align: center;
   color: black;
+  font-size: 12px;
 }
 
 #modal-button {
@@ -204,69 +225,69 @@
 
 button#“red” {
   border-radius: 50%;
-  padding: 20px;
+  padding: 12px;
   background-color: red;
   margin-top: 10px;
 }
 
 button#“purple” {
   border-radius: 50%;
-  padding: 20px;
+  padding: 12px;
   background-color: purple;
   margin-top: 10px;
 }
 
 button#“blue” {
   border-radius: 50%;
-  padding: 20px;
+  padding: 12px;
   background-color: blue;
   margin-top: 10px;
 }
 
 button#“green” {
   border-radius: 50%;
-  padding: 20px;
+  padding: 12px;
   background-color: green;
   margin-top: 10px;
 }
 
 button#“yellow” {
   border-radius: 50%;
-  padding: 20px;
+  padding: 12px;
   background-color: yellow;
   margin-top: 10px;
 }
 
 button#“orange” {
   border-radius: 50%;
-  padding: 20px;
+  padding: 12px;
   background-color: orange;
   margin-top: 10px;
 }
 
 button#“pink” {
   border-radius: 50%;
-  padding: 20px;
+  padding: 12px;
   background-color: pink;
   margin-top: 10px;
 }
 
-button#“warm-tones” {
+/* button#“warm-tones” {
   border-radius: 50%;
   padding: 20px;
   background-color: pink;
   margin-top: 10px;
-}
+} */
 
 button#“pink” {
   border-radius: 50%;
-  padding: 20px;
+  padding: 12px;
   background-color: pink;
   margin-top: 10px;
 }
 
 
-@media only screen and (max-width: 700px) {
+/* @media only screen and (max-width: 700px) {
   #update-btn {
     float: right;
     background-color: rgb(26, 218, 252);
@@ -282,7 +303,7 @@ button#“pink” {
     width: 80%;
     text-align: center;
   }
-}
+} */
 
     </style>
 </head>
@@ -293,11 +314,13 @@ button#“pink” {
         <!-- <a href="#home">Home</a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a> -->
+        <div id="buttons-view"></div> 
+           <div class="container">
+            <div class="row"> 
+             <div class="col-md-6">
      
-  <div class=flex-container> 
-       <!-- Rendered Buttons will get Dumped Here  -->
-    <div id="buttons-view"></div> 
-
+   
+    <h3>Set Colors</h3>
     <button id=“warm-tones”>Warm</button>
     <button id=“cool-tones”>cool</button>
     <button id=“neutral-tones”>neutral</button>
@@ -308,25 +331,27 @@ button#“pink” {
     <button id=“yellow”></button>
     <button id=“orange”></button>
     <button id=“pink”></button>
+   
+</div>
+ 
 
-  </div>
-
-    <h1>Select Max Price $ <span id="demo"></h1>
+  <div class="col-md-6">
+    <h3>Select Max Price $ <span id="demo"></h3>
     <button id="update-btn">update budget</button> </span> 
     
     <div class="slidecontainer">
           <input type="range" min="1" max="100" value="50" class="slider" id="myRange"> 
           <!-- <button id="natural-btn">Natural</button> -->
        
-          
+        </div>     
         </div>
     </div>  
-
+  </div>
             <!-- Trigger/Open The Modal -->
         <div class="container">
         <div id="loadingDiv"></div>
 
-        
+       
        
         <div class="flex-container"> 
         <!-- Makeup and videos will Get Dumped Here -->
@@ -356,6 +381,7 @@ button#“pink” {
        <div class="loader"></div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script type="text/javascript">
 
      //making the load screen run on ajax click 
@@ -485,13 +511,13 @@ var but = $("<a>").attr("href", productLink).attr("target", "_blank");
 
 if (productName !== undefined && productType !==
   undefined && priceVar !== undefined && imgURL !== undefined) {
-  var pOne = $("<div>").text(productName).addClass("data-fun");
+  var pOne = $("<div>").text(productName).addClass("data-fun").css("font-weight", "bold").css("padding", "5px");
   var pTwo = $("<div>").text(productType);
   var pThree = $("<div>").text("Price: $" + priceVar);
   var image = $("<img>").attr("src", imgURL);
   var b = $("<button>").html("Watch Tutorial").addClass("myBtn video-button waves-effect waves-light btn-small").attr("data-fun-time", productName);
 
-  movieDiv.append(pOne, pTwo, pThree, image, b);
+  movieDiv.append(pOne, pThree, image, b, pTwo);
 
   youtubeButtonDiv.append(but)
 
@@ -513,17 +539,11 @@ if (productName !== undefined && productType !==
 
                 // Looping through the array of makeUpArr
                 for (var i = 0; i < makeUpArr.length; i++) {
-
+                     var s = $("<div>").addClass("row");
                     // Then dynamicaly generating buttons for each makeup in the array
                     // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-                    var a = $("<button>");
-                    // Adding a class of makeup-btn to our button
-                    a.addClass("makeup-btn flex-content");
-                    // Adding a data-attribute
-                    a.attr("data-name", makeUpArr[i]);
-                    a.attr("data-video", makeUpArr[i]);
-                    // Providing the initial button text
-                    a.text(makeUpArr[i]);
+                    var a = $("<button>").addClass("makeup-btn flex-content").addClass("col-lg-12").attr("data-name", makeUpArr[i]).attr("data-video", makeUpArr[i]).text(makeUpArr[i]);
+                
                     // Adding the button to the buttons-view div
                     $("#buttons-view").append(a);
                 }
