@@ -191,18 +191,18 @@ div .makeup img {
 
 #wait {
   display: none;
+  
 
 }
 
-/* #wait1 {
-  display: block;
+#wait1 {
+  /* display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: -5px;
-  margin-right: 5%;
-  width: 100%;
-  position: absolute;
-} */
+  margin-right: 5%; */
+  /* position: absolute; */
+}
 
 /* nav bar elements  */
 .navbar {
@@ -347,47 +347,52 @@ iframe {
           <div class="row">
         <div id="buttons-view"></div> 
         </div>
+
+        
         
             <div class="row"> 
-             <div class="col-md-6">
-     
-   
-    <h4>Set Colors</h4>
-    <!-- <button id=“warm-tones”>Warm</button>
-    <button id=“cool-tones”>cool</button>
-    <button id=“neutral-tones”>neutral</button> -->
-    <button id=“red”></button>
-    <button id=“purple”></button>
-    <button id=“blue”></button>
-    <button id=“green”></button>
-    <button id=“yellow”></button>
-    <button id=“orange”></button>
-    <button id=“pink”></button>
-   
-</div>
- 
 
-  <div class="col-md-6">
-    <h4>Max Price $ <span id="demo"></h4>
-    <button id="update-btn">update budget</button> </span> 
-    
-    <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange"> 
-          <!-- <button id="natural-btn">Natural</button> -->
-       
-        </div>     
+
+                    <div class="col-md-4"> 
+                            <h4>Find Products</h4>
+                             <input type="text" placeholder="Search..">
+                         </div>
+
+
+    <div class="col-md-4">
+            <h4>Set Max Price $ <span id="demo"></h4>
+            
+            
+            <button id="update-btn">update budget</button> </span> 
+            
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange"> 
+                <!-- <button id="natural-btn">Natural</button> -->
+            </div>     
         </div>
-    
+        <div class="col-md-4">
+                <h4>Pick Colors</h4>
+                <!-- <button id=“warm-tones”>Warm</button>
+                <button id=“cool-tones”>cool</button>
+                <button id=“neutral-tones”>neutral</button> -->
+                <button id=“red”></button>
+                <button id=“purple”></button>
+                <button id=“blue”></button>
+                <button id=“green”></button>
+                <button id=“yellow”></button>
+                <button id=“orange”></button>
+                <button id=“pink”></button>
+            </div> 
   </div>
             <!-- Trigger/Open The Modal -->
         <div class="container">
-        <div id="loadingDiv"></div>
+        <center><div id="loadingDiv" class="txt"></div></center>
 
        
        
         <div class="flex-container"> 
         <!-- Makeup and videos will Get Dumped Here -->
-        <div id="makeUpView" class="txt">
+        <div id="makeUpView" >
         </div>
 
                 <div id="wait"><img id="wait1" src='https://cdn.dribbble.com/users/765253/screenshots/2540865/loader.gif' /></div>
@@ -416,7 +421,7 @@ iframe {
                         <div class="background-image img-responsive"> <img src="https://www.athomediva.com/wp-content/uploads/sites/2/2018/02/Makeup-Beauty-Essentials-While-Travelling.jpg" ></div>
                  
                         <h1 class="h1s"> View Tortorials </h1> 
-                        <iframe  src="https://www.youtube.com/embed/XW0V2SZidYM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                       
+                        <iframe class="background-image" src="https://www.youtube.com/embed/XW0V2SZidYM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                       
                         <h1 class="h1s"> Buy Direct & Save</h1>     
                         <div class="background-image img-responsive"  > <img src=" https://beautysociety.com/wp-content/uploads/2018/01/Beauty-Society-Facebook-Share.jpg" ></div>
                     </center> 
