@@ -191,9 +191,10 @@ div .makeup img {
 
 #wait {
   display: none;
+
 }
 
-#wait1 {
+/* #wait1 {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -201,7 +202,7 @@ div .makeup img {
   margin-right: 5%;
   width: 100%;
   position: absolute;
-}
+} */
 
 /* nav bar elements  */
 .navbar {
@@ -465,7 +466,7 @@ iframe {
 
      //making the load screen run on ajax click 
         $(document).ajaxStart(function(){
-        $("#wait").css("display", "block");
+        $("#wait").css("display", "block").css("width", "100%");
         });
         $(document).ajaxComplete(function(){
             $("#wait").css("display", "none");
