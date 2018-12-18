@@ -166,6 +166,21 @@ div .makeup img {
     display: flex;
 }
 
+#search-btn {
+    float: left;
+    background-color: rgb(26, 218, 252);
+    border-radius: 10px;
+    /* margin-left: 2%; */
+    margin-right: 10px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    /* padding: 6px; */
+    display: flex;
+}
+
+
 .video-button {
     width: 90%;
     background-color: black;
@@ -355,7 +370,8 @@ iframe {
 
                     <div class="col-md-4"> 
                             <h4>Find Products</h4>
-                             <input type="text" placeholder="Search..">
+                            <button id="search-btn">search</button> 
+                             <input id="add-movie" type="text" placeholder="Search..">
                          </div>
 
 
@@ -363,7 +379,7 @@ iframe {
             <h4>Set Max Price $ <span id="demo"></h4>
             
             
-            <button id="update-btn">update</button> </span> 
+            <button id="update-btn">update</button> 
             
             <div class="slidecontainer">
                 <input type="range" min="1" max="100" value="50" class="slider" id="myRange"> 
@@ -433,41 +449,40 @@ iframe {
 
        </div>
    
-       <!-- <footer class="page-footer light-blue">
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-4">
-                      <div id="contact3">Isabel's Github</div>
-                      <img id="isabel" src="assets/isabel2.png" alt="Looks like the image is no longer rendering! If you see this message please contact the team.">
-                      <a href="https://github.com/IsabelKt">  </a>
-                         
-                  </div>
-                
-                  <div class="col-lg-4">
-                      <div id="contact3">Steven's Github</div>
-                      <img id="steve" src="assets/steve2.png" alt="Looks like the image is no longer rendering! If you see this message please contact the team.">
-                      <a href="https://github.com/shornbeek">  </a>
-                         
-                  </div>
-              
-                  <div class="col-lg-4">
-                      <div id="contact3">Robert's Github</div>
-                      <img id="robert" src="assets/robert2.png" alt="Looks like the image is no longer rendering! If you see this message please contact the team.">
-                      <a href="https://github.com/Kalasky"></a>
-                         
-                  </div>
-                  
-              </div>
-          </div>
-      </footer> -->
 
-      
-      
+          
        <div class="loader"></div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script type="text/javascript">
+
+        // var movie = $("#movie-input").val().trim();
+
+
+// $( "input" ).on( "blur", function() {
+//   $( this ).val(function( i, val ) {
+//     return val.toUpperCase();
+//   });
+// });
+
+// $("input").on("keyup change", function() {
+//    var value = this.value; // omit "var" to make it global
+//    $("#loader").text(value);
+// });
+
+                
+    $( "input" )
+  .keyup(function() {
+    var value = $( this ).val();
+    
+    $( "#makeUpView" ).text( value );
+    var c = $("<button>").html("Watch Tutorial").addClass("myBtn video-button waves-effect waves-light btn-small").attr("data-fun-time", value);
+
+    console.log(value);
+    // return value.toUpperCase();
+  })
+//   .keyup();
 
      //making the load screen run on ajax click 
         $(document).ajaxStart(function(){
@@ -526,10 +541,10 @@ iframe {
             var makeUpArr = ["blush", "bronzer", "eyebrow", "eyeliner", "eyeshadow", "foundation", "lip_liner", "lipstick", "mascara", "nail_polish"];
 
             // displayMakeupInfo function re-renders the HTML to display the appropriate content
-            function displayMakeupInfo() {
+            function displayMakeupInfo(category) {
                 console.log(selectedCategory)
                 //var makeup = $(button).attr("data-name");
-                var queryURL = "https://makeup-api.herokuapp.com/api/v1/products.json?product_type=" + selectedCategory + "";
+                var queryURL = "https://makeup-api.herokuapp.com/api/v1/products.json?product_type=" + category + "";
 
                 // Creating an AJAX call for the specific makeup button being clicked
 
@@ -652,14 +667,15 @@ if (productName !== undefined && productType !==
             function onButtonClick () {
                 // displayVideos();
                 displayMakeupInfo();
-              
+            
              
             }
 
             // Adding a click event listener to all elements with a class of "makeup-btn"
             $(document).on("click", ".makeup-btn", function() {
                 selectedCategory = $(this).attr("data-name");
-                onButtonClick()
+                displayMakeupInfo(selectedCategory);
+                //onButtonClick()
             });
 
             $(document).on("click", "#update-btn", onButtonClick);
@@ -689,6 +705,18 @@ if (productName !== undefined && productType !==
     
                 })
             }
+
+            $("#search-btn").on("click" , function(e) {
+                e.preventDefault();
+
+                var input = $("#add-movie").val();
+
+                console.log(input);
+
+                //selectedCategory=input;
+                displayMakeupInfo(input);
+
+            })
 
         </script>
     </div>
